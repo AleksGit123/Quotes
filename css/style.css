@@ -5,6 +5,10 @@ body {
 
 body {
     padding: 0 5px 5px;
+    background-image: url("../media/parchment.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .dark__theme {
@@ -122,26 +126,13 @@ input {
     width: 20px;
     height: 30px;
     border-radius: 50% 50% 50% 50% / 60% 70% 40% 40%;
-    /* ელიფსური ფორმა */
     z-index: 1;
-    /* რადიალური გრადიენტი: შიგნიდან გარედან */
     background-image: radial-gradient(circle at center,
-            /* 1. ყველაზე ცხელი ნაწილი: თეთრი/ღია ყვითელი */
             #fff3b5 0%,
-            /* თეთრი-ყვითელი: 0% */
-            /* 2. შუა ნაწილი: კაშკაშა ყვითელი/ნარინჯისფერი */
             #ffc400c4 25%,
-            /* კაშკაშა ყვითელი: 25% */
-            /* 3. გარე ნაწილი: ნარინჯისფერი */
             #ff5733 80%,
-            /* ნარინჯისფერი: 60% */
-            /* 4. ყველაზე გარე ნაწილი: მუქი ნარინჯისფერი/მოწითალო */
             #c70038ad 90%,
-            /* მოწითალო: 90% */
-            /* 5. ლურჯი ბაზა (ალის ძირი) */
-            transparent 90%
-            /* გამჭვირვალე 90%-ის შემდეგ */
-        );
+            transparent 90%);
     box-shadow: 0 0 8px rgba(255, 87, 51, 0.7),
         0 0 8px rgba(255, 87, 51, 0.7),
         0 0 8px rgba(255, 87, 51, 0.7);
@@ -155,12 +146,10 @@ input {
     }
 
     30% {
-        /* ოდნავ მარცხნივ მოხრა და ოდნავ დამოკლება */
         transform: skewY(-5deg) scale(0.99, 1.01);
     }
 
     70% {
-        /* ოდნავ მარჯვნივ მოხრა და ოდნავ დაგრძელება */
         transform: skewY(4deg) scale(1.01, 0.99);
     }
 }
@@ -178,7 +167,6 @@ input {
     display: flex;
     justify-content: space-between;
     column-gap: 30px;
-    border: 2px solid green;
     width: 100%;
     height: calc(100% - 100px);
 }
@@ -187,10 +175,12 @@ input {
 .index__section1 {
     border: 2px solid blue;
     width: 170px;
+
 }
 
 /* section 2 */
 .index__section2 {
-    border: 3px solid orange;
     width: 100%;
+
+
 }
