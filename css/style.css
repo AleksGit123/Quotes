@@ -1,0 +1,196 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    padding: 0 5px 5px;
+}
+
+.dark__theme {
+    background-color: #1a1a1a;
+    background-image: radial-gradient(circle at 50% 160%,
+            #ffb703 20%,
+            rgba(255, 120, 0, 0.4) 27%,
+            rgba(0, 0, 0, 0) 70%);
+
+    background-repeat: no-repeat;
+}
+
+.font {
+    font-family: 'Stardom-Regular', "Noto Serif Georgian", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    color: #222222;
+}
+
+
+/* header */
+.index__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    padding-inline: 10px;
+}
+
+
+.index__header__logo__a {
+    width: 128px;
+    height: 100%;
+}
+
+.index__header__icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* search div */
+.header__search__div {
+    position: relative;
+    width: 350px;
+}
+
+.header__search__div img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+}
+
+input {
+    outline: none;
+    border: none;
+    padding: 5px 20px;
+    font-size: 20px;
+    line-height: 24px;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.quotes__icon__left {
+    bottom: -10px;
+    left: -20px;
+}
+
+.quotes__icon__right {
+    top: -10px;
+    right: 0px;
+    transform: rotateX(-180deg);
+}
+
+
+.header__buttons__div {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+    height: fit-content;
+}
+
+
+.log_in {
+    border: 2px solid #222222;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 16px;
+    text-shadow: 0 0px 3px rgb(0, 0, 0);
+}
+
+.candle__icon {
+    position: relative;
+    width: 25px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.header__buttons__div::before {
+    top: 2px;
+    content: "";
+    display: block;
+    position: absolute;
+    right: 18px;
+    width: 20px;
+    height: 30px;
+    border-radius: 50% 50% 50% 50% / 60% 70% 40% 40%;
+    /* ელიფსური ფორმა */
+    z-index: 1;
+    /* რადიალური გრადიენტი: შიგნიდან გარედან */
+    background-image: radial-gradient(circle at center,
+            /* 1. ყველაზე ცხელი ნაწილი: თეთრი/ღია ყვითელი */
+            #fff3b5 0%,
+            /* თეთრი-ყვითელი: 0% */
+            /* 2. შუა ნაწილი: კაშკაშა ყვითელი/ნარინჯისფერი */
+            #ffc400c4 25%,
+            /* კაშკაშა ყვითელი: 25% */
+            /* 3. გარე ნაწილი: ნარინჯისფერი */
+            #ff5733 80%,
+            /* ნარინჯისფერი: 60% */
+            /* 4. ყველაზე გარე ნაწილი: მუქი ნარინჯისფერი/მოწითალო */
+            #c70038ad 90%,
+            /* მოწითალო: 90% */
+            /* 5. ლურჯი ბაზა (ალის ძირი) */
+            transparent 90%
+            /* გამჭვირვალე 90%-ის შემდეგ */
+        );
+    box-shadow: 0 0 8px rgba(255, 87, 51, 0.7),
+        0 0 8px rgba(255, 87, 51, 0.7),
+        0 0 8px rgba(255, 87, 51, 0.7);
+}
+
+@keyframes flame {
+
+    0%,
+    100% {
+        transform: skewY(0deg) scale(1, 1);
+    }
+
+    30% {
+        /* ოდნავ მარცხნივ მოხრა და ოდნავ დამოკლება */
+        transform: skewY(-5deg) scale(0.99, 1.01);
+    }
+
+    70% {
+        /* ოდნავ მარჯვნივ მოხრა და ოდნავ დაგრძელება */
+        transform: skewY(4deg) scale(1.01, 0.99);
+    }
+}
+
+.header__buttons__div.candle__flame::before {
+    animation: flame__movement 1s infinite alternate;
+}
+
+.header__buttons__div.opacity__low::before {
+    opacity: 0;
+}
+
+/* main tag */
+.index__main {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+    border: 2px solid green;
+    width: 100%;
+    height: calc(100% - 100px);
+}
+
+/* section 1 */
+.index__section1 {
+    border: 2px solid blue;
+    width: 170px;
+}
+
+/* section 2 */
+.index__section2 {
+    border: 3px solid orange;
+    width: 100%;
+}
