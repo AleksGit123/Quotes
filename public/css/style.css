@@ -1,13 +1,14 @@
 *,
 button:hover,
-input:hover,
 .remove:hover,
 .candle__icon:hover {
-
     cursor: url("../media/feather.png") 4 28, auto;
 }
 
-input:focus {
+input:focus,
+input:hover,
+textarea:focus,
+textarea:hover {
     cursor: url("../media/feather-writing.png")4 28, auto;
 }
 
@@ -38,7 +39,7 @@ body {
 }
 
 .font {
-    font-family: 'Stardom-Regular', "Noto Serif Georgian", serif;
+    font-family: "MedievalSharp", cursive, "Noto Serif Georgian", serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-display: swap;
@@ -66,7 +67,7 @@ body {
 }
 
 
-.index__header__logo__a {
+.index__header__logo {
     width: 64px;
     height: 64px;
 }
@@ -93,8 +94,21 @@ body {
 input {
     outline: none;
     border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    background-color: transparent;
+    transition: .4s;
+
+}
+
+.search {
+    outline: none;
+    border: none;
     padding: 5px 20px;
     font-size: 20px;
+    font-weight: 600;
     line-height: 24px;
     width: 100%;
     height: 100%;
@@ -204,6 +218,16 @@ input {
     }
 }
 
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 2px solid green;
+}
+
+
 /* main tag */
 .index__main {
     display: flex;
@@ -213,36 +237,168 @@ input {
     height: calc(100% - 100px);
 }
 
-/* section 1 */
-.index__section1 {
-    border: 2px solid blue;
-    width: 170px;
+/* registration section */
+.registration {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+    padding: 20px;
+    width: 400px;
+    height: 400px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
 
+.registration__header {
+    font-size: 32px;
+}
+
+/* registration form */
+.registration__form {
+    padding: 20px 30px;
+}
+
+.input__div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+}
+
+.registration__form input {
+    position: relative;
+    border: 2px dashed #000000;
+    font-weight: 700;
+    transition: .4s;
+}
+
+.registration__form input:hover {
+    border-color: #FFFFFF;
+}
+
+.registration__form label {
+    position: absolute;
+    font-size: 20px;
+    left: 20px;
+    opacity: 0.7;
+}
+
+.username__label {
+    top: 13px;
+}
+
+.email__label {
+    top: 87px;
+}
+
+.password__label {
+    bottom: 12px;
+}
+
+.stamp {
+    position: absolute;
+    opacity: 0;
+    width: 80px;
+    height: 80px;
+    right: -40px;
+    bottom: 90px;
+}
+
+.stamp__anime {
+    animation: stamp 1s linear forwards;
+}
+
+@keyframes stamp {
+    0% {
+        transform: rotate(0deg);
+        right: -40px;
+        bottom: 90px;
+        opacity: 0;
+    }
+
+    50% {
+        transform: rotate(-45deg);
+        right: -10px;
+        bottom: 20px;
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotateZ(-45deg);
+        right: -10px;
+        bottom: 90px;
+        opacity: 1;
+    }
+
+}
+
+.form__approve {
+    transform: scale(0.7);
+    opacity: 0;
+    right: -10px;
+}
+
+.wax__anime {
+    animation: wax .5s linear 0.6s forwards;
+
+}
+
+@keyframes wax {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* submit */
+.submit {
+    background-color: transparent;
+    padding-block: 15px;
+    width: 100%;
+    font-size: 18px;
+    border: 2px dashed #000000;
+    margin-top: 30px;
+    transition: .4s;
+}
+
+.submit:hover {
+    transform: scale(1.05);
 }
 
 /* section 2 */
 .index__section2 {
     position: relative;
-    border: 2px solid red;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
-    padding: 10px;
-    gap: 20px;
+    display: flex;
+    row-gap: 30px;
+    align-items: end;
+    flex-direction: column;
     overflow-y: scroll;
     scrollbar-width: thin;
     scrollbar-color: #000000 transparent;
 }
 
+
 .section2__header__div {
-    position: absolute;
+    position: relative;
     padding-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     right: 10px;
     top: 10px;
+    border: 2px solid red;
+    width: fit-content;
+    height: fit-content;
 }
 
 .feather__svg {
@@ -264,32 +420,106 @@ input {
     left: 14px;
 }
 
-.section2__header__div:hover .add__quote {
+.section2__header__div:hover .new__quote {
     font-weight: 700;
     transform: translateY(-5px);
 }
 
-.add__quote {
+.new__quote {
     background-color: transparent;
     border: none;
     font-size: 18px;
     padding: 5px 10px;
     transition: .4s;
+    z-index: 40;
 }
 
+/* new quote window */
+.new__quote__div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 38px;
+    border: 2px dashed black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 360px;
+    height: fit-content;
+    padding: 20px;
+    transition: .4s;
+}
 
+.appear {
+    animation: lift_up .5s linear 1 forwards;
+}
+
+@keyframes lift_up {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.author__input {
+    border: 2px dashed black;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.quote__textarea {
+    border: 2px dashed black;
+    font-weight: 600;
+    resize: none;
+    width: 100%;
+    height: 200px;
+    outline: none;
+    background-color: transparent;
+    font-size: 18px;
+    padding: 5px 10px;
+}
+
+.new__quote__div button {
+    border: 2px dashed black;
+    font-weight: 700;
+    font-size: 18px;
+    padding-block: 14px;
+    font-size: 18px;
+    transition: .4s;
+    background-color: transparent;
+}
+
+.new__quote__div button:hover {
+    transform: scale(1.05);
+}
+
+.section2__article__div {
+    border: 2px solid red;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+
+}
+
+/* section 2 articles */
 .quote__article {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    row-gap: 15px;
+    row-gap: 30px;
     padding: 15px 10px;
     width: 350px;
-    height: 250px;
+    height: fit-content;
     border: 3px dashed #3e2723;
-    margin-top: 70px;
 }
 
 .index__section2 h2 {
@@ -332,4 +562,16 @@ input {
 .button__div button:hover {
     border-color: rgb(189, 0, 0);
     transform: translateY(-5px)
+}
+
+.approval {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    bottom: 0;
+    right: 0;
+}
+
+.hide {
+    display: none;
 }

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/reset.css">
+
+    <!-- font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+
+    <!-- font 2 -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+
+
+    <!-- Georgian font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <link rel="shortcut icon" href="./media/parchment.svg" type="image/x-icon">
+
+    <script defer src="./index.js"></script>
+    <title>Quotes</title>
+
+</head>
+
+<body>
+
+    <header class="index__header">
+        <a href="/" class="index__header__logo">
+            <img src="./media/parchment.svg" alt="quotes icon" class="index__header__icon">
+        </a>
+
+        <div class="header__search__div">
+            <input type="text" id="search" class="search handwriten__font" placeholder="Search...">
+
+            <img src="./media/quotes.png" alt="quotes mark icon" class="quotes__icon__left">
+
+            <img src="./media/quotes.png" alt="quotes mark icon" class="quotes__icon__right">
+
+        </div>
+
+
+        <div class="header__buttons__div opacity__low">
+            <button class="log_in font">Log In</button>
+        </div>
+
+    </header>
+    <div class="overlay hide"></div>
+
+    <main class="index__main">
+
+
+        <!-- registration section -->
+        <section class="registration hide">
+            <h2 class="registration__header font">
+                Registration Form
+            </h2>
+
+            <form action="#" class="registration__form">
+                <div class="input__div">
+                    <label for="username" class="username__label font">username</label>
+                    <input type="text" class="username font" id="username">
+
+                    <label for="email" class="email__label font">email</label>
+                    <input type="email" class="email font" id="email">
+
+                    <label for="password" class="password__label font">password</label>
+                    <input type="password" autocomplete="on" class="password font" id="password">
+                </div>
+
+                <button class="submit font">S U B M I T</button>
+
+
+                <img src="./media/rubber-stamp.png" alt="stamp icon" class="stamp">
+
+                <img src="./media/approval.png" alt="approval" class="form__approve approval">
+            </form>
+
+        </section>
+
+        <!-- section 2 -->
+        <section class="index__section2">
+
+            <div class="section2__header__div">
+                <img src="./media/feather.png" alt="feather svg" class="feather__svg">
+                <img src=" ./media/ink.svg" alt="ink svg" class="ink__svg">
+                <button class="new__quote handwriten__font">New Quote</button>
+            </div>
+
+            <!-- new quote div -->
+
+            <div class="new__quote__div ">
+                <input type="text" placeholder="Author" class="author__input font ">
+                <textarea name="quote" id="quote" class="quote__textarea font" placeholder="Quote"></textarea>
+
+                <button class="add__quote font">Add Quote</button>
+
+                <button class="cancel font">Never Mind</button>
+
+            </div>
+
+            <div class="section2__article__div">
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

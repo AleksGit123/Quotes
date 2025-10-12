@@ -1,0 +1,21 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "target": "ES2022",
+    "module": "nodenext",
+    "lib": ["DOM", "ES2020"],
+    "moduleResolution": "nodenext",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": false,
+    "strict": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "skipLibCheck": true
+  }
+}
