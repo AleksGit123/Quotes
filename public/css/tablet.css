@@ -1,0 +1,25 @@
+@media(max-width:769px) {
+    .index__header {
+        padding-inline: 0;
+    }
+
+
+    .index__header__logo {
+        display: none;
+
+    }
+
+    .parchment__menu__div {
+        display: block;
+    }
+
+    .search {
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .log_in {
+        display: none;
+    }
+
+}

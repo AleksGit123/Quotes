@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- reset css -->
     <link rel="stylesheet" href="./css/reset.css">
 
     <!-- font link -->
@@ -13,7 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 
     <!-- font 2 -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
@@ -25,21 +25,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@100..900&display=swap"
         rel="stylesheet">
 
+    <!-- main css  -->
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <link rel="stylesheet" href="./css/mobile.css">
 
     <link rel="shortcut icon" href="./media/parchment.svg" type="image/x-icon">
 
-    <script defer src="./index.js"></script>
+    <script defer src="./index.js" type="module"></script>
     <title>Quotes</title>
 
 </head>
 
 <body>
 
+    <!-- header -->
     <header class="index__header">
+
         <a href="/" class="index__header__logo">
             <img src="./media/parchment.svg" alt="quotes icon" class="index__header__icon">
         </a>
+
+        <!-- parchment list -->
+        <div class="parchment__menu__div hide">
+            <img src="./media/closed-parchment.png" alt="" class="ancient__scroll">
+
+            <div class="parchment__nav__div">
+                <!-- navigation -->
+                <nav class="parchment__nav__list">
+                    <ul class="parchment__nav__ul">
+                        <li class="parchment__nav__li font">User</li>
+                        <li class="parchment__nav__li font">Log In</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+
 
         <div class="header__search__div">
             <input type="text" id="search" class="search handwriten__font" placeholder="Search...">
@@ -51,35 +74,42 @@
         </div>
 
 
-        <div class="header__buttons__div opacity__low">
-            <button class="log_in font">Log In</button>
-        </div>
+        <!-- <div class="header__buttons__div opacity__low"> -->
+        <button class="log_in font">Log In</button>
+
+        <!-- </div> -->
 
     </header>
+
+    <!-- overlay for registration -->
     <div class="overlay hide"></div>
 
+    <!-- main section -->
     <main class="index__main">
 
 
         <!-- registration section -->
-        <section class="registration hide">
+        <section class="registration">
             <h2 class="registration__header font">
                 Registration Form
             </h2>
 
+            <!-- form  -->
             <form action="#" class="registration__form">
+
+                <!-- div for inputs -->
                 <div class="input__div">
-                    <label for="username" class="username__label font">username</label>
-                    <input type="text" class="username font" id="username">
 
-                    <label for="email" class="email__label font">email</label>
-                    <input type="email" class="email font" id="email">
+                    <input type="text" class="username font " id="username" placeholder="username">
 
-                    <label for="password" class="password__label font">password</label>
-                    <input type="password" autocomplete="on" class="password font" id="password">
+
+                    <input type="email" class="email font" id="email" placeholder="email">
+
+                    <input type="password" autocomplete="on" class="password font" id="password" placeholder="password">
                 </div>
 
                 <button class="submit font">S U B M I T</button>
+
 
 
                 <img src="./media/rubber-stamp.png" alt="stamp icon" class="stamp">
@@ -87,11 +117,18 @@
                 <img src="./media/approval.png" alt="approval" class="form__approve approval">
             </form>
 
+            <!-- sign up and log in form toggle -->
+            <p class="signup__login__toggle font">
+                If you don't have an account
+                <span class="toggle__span font">S I G N U P</span>
+            </p>
+            <img src="./media/delete.png" alt="cancel png" class="cancel__img">
         </section>
 
         <!-- section 2 -->
         <section class="index__section2">
 
+            <!-- section 2 header div for adding new quote -->
             <div class="section2__header__div">
                 <img src="./media/feather.png" alt="feather svg" class="feather__svg">
                 <img src=" ./media/ink.svg" alt="ink svg" class="ink__svg">
@@ -110,9 +147,9 @@
 
             </div>
 
+            <!-- section for quotes(articles) -->
             <div class="section2__article__div">
-
-            </div>
+              
 
         </section>
 
