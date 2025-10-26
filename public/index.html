@@ -18,6 +18,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
 
+    <!-- signature font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
     <!-- Georgian font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,11 +37,21 @@
     <link rel="shortcut icon" href="./media/parchment.svg" type="image/x-icon">
 
     <script defer src="./index.js" type="module"></script>
+
     <title>Quotes</title>
 
 </head>
 
 <body>
+
+    <!-- loader -->
+    <section class="loader__section hide">
+        <div class="loader">
+            <h2 class="loader__text font">L O A D I N G</h2>
+            <img src="./media/moustache.gif" alt="">
+        </div>
+    </section>
+
 
     <!-- header -->
     <header class="index__header">
@@ -105,10 +119,10 @@
 
                     <input type="email" class="email font" id="email" placeholder="email">
 
-                    <input type="password" autocomplete="on" class="password font" id="password" placeholder="password">
+                    <input type="text" autocomplete="on" class="password font" id="password" placeholder="password">
                 </div>
 
-                <button class="submit font">S U B M I T</button>
+                <button class="submit font">L O G I N</button>
 
 
 
@@ -149,7 +163,20 @@
 
             <!-- section for quotes(articles) -->
             <div class="section2__article__div">
-              
+
+            </div>
+
+            <!-- user div -->
+            <div class="user__div hide">
+                <h3 class="user__div__header signature__font">
+                    From:
+                    <span class="user__name signature__font"></span>
+                </h3>
+
+                <button class="logout signature__font">L E A V E </button>
+            </div>
+
+
 
         </section>
 

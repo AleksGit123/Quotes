@@ -9,21 +9,28 @@ const DOM = {
     password: getElement(".password"),
     email: getElement(".email"),
     // კონტეინერები/დივები
+    indexSection2: getElement(".index__section2"),
     articleDiv: getElement(".section2__article__div"),
     addQuoteDiv: getElement(".new__quote__div"),
     registrationDiv: getElement(".registration"),
     overlay: getElement(".overlay"),
+    formDiv: getElement(".registration__form"),
+    usernameDiv: getElement(".user__div"),
+    loader: getElement(".loader__section"),
     // ღილაკები
     newQuoteBtn: getElement(".new__quote"),
     addQuoteBtn: getElement(".add__quote"),
     cancelBtn: getElement(".cancel"),
     loginBtn: getElement(".log_in"),
-    signup: getElement(".toggle__span"),
+    submit: getElement(".submit"),
+    signupBtn: getElement(".signup"),
+    logout: getElement(".logout"),
     // მედია
     closeRegistrationBtn: getElement(".cancel__img"),
     // ტექსტები
     signupLoginToggle: getElement(".signup__login__toggle"),
     toggleSpan: getElement(".toggle__span"),
+    usernameSpan: getElement(".user__name"),
 };
 export default DOM;
 //# sourceMappingURL=domElements.js.map
