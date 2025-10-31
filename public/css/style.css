@@ -434,42 +434,6 @@ input {
     color: #102a4385;
 }
 
-.stamp {
-    position: absolute;
-    opacity: 0;
-    width: 80px;
-    height: 80px;
-    right: -40px;
-    bottom: 90px;
-}
-
-.stamp__anime {
-    animation: stamp 1s linear forwards;
-}
-
-@keyframes stamp {
-    0% {
-        transform: rotate(0deg);
-        right: -40px;
-        bottom: 90px;
-        opacity: 0;
-    }
-
-    50% {
-        transform: rotate(-45deg);
-        right: -10px;
-        bottom: 20px;
-        opacity: 1;
-    }
-
-    100% {
-        transform: rotateZ(-45deg);
-        right: -10px;
-        bottom: 90px;
-        opacity: 1;
-    }
-
-}
 
 .form__approve {
     transform: scale(0.7);
@@ -479,7 +443,6 @@ input {
 
 .wax__anime {
     animation: wax .5s linear 0.6s forwards;
-
 }
 
 @keyframes wax {
@@ -492,6 +455,25 @@ input {
         transform: scale(1);
         opacity: 1;
     }
+}
+
+.sword__svgs {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    width: 37px;
+    height: fit-content;
+}
+
+.sword {
+    width: 27px;
+    height: 27px;
+}
+
+.reversed {
+    transform: rotate(-90deg) translateY(-23px);
 }
 
 /* submit */
@@ -686,7 +668,7 @@ input {
     border: 3px dashed #3e2723;
 }
 
-.quote__article::before {
+.quote__article.not__logedin::before {
     content: "";
     display: block;
     position: absolute;

@@ -17,6 +17,7 @@ const DOM = {
     formDiv: getElement(".registration__form"),
     usernameDiv: getElement(".user__div"),
     loader: getElement(".loader__section"),
+    swordSvgs: getElement(".sword__svgs"),
     // ღილაკები
     newQuoteBtn: getElement(".new__quote"),
     addQuoteBtn: getElement(".add__quote"),
@@ -25,6 +26,7 @@ const DOM = {
     submit: getElement(".submit"),
     signupBtn: getElement(".signup"),
     logout: getElement(".logout"),
+    removeBtn: getElement(".remove"),
     // მედია
     closeRegistrationBtn: getElement(".cancel__img"),
     // ტექსტები

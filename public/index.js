@@ -5,16 +5,16 @@ let regexObj = regexp.regexObject;
 let addNewQuote = (author, quote, id) => {
     let quoteHTML = `
     <article class="quote__article ">
-                <h2 class="author handwriten__font">${author}</h2>
-                <p class="quote handwriten__font">
-                    ${quote}
-                </p>
+              <h2 class="author handwriten__font">${author}</h2>
+              <p class="quote handwriten__font">
+                  ${quote}
+              </p>
 
-                <div class="button__div">
-                    <button class="remove handwriten__font" data-id="${id}">R E M O V E</button>
-                </div>
+              <div class="button__div">
+                  <button class="remove handwriten__font" data-id="${id}">R E M O V E</button>
+              </div>
 
-                <img src="./media/approval.png" alt="approval svg" class="approval">
+              <img src="./media/approval.png" alt="approval svg" class="approval">
     </article>
 `;
     DOM.articleDiv.insertAdjacentHTML("beforeend", quoteHTML);
@@ -43,8 +43,9 @@ let removeRegistrationWindow = () => {
     DOM.username.style.backgroundColor = "transparent";
     DOM.password.style.backgroundColor = "transparent";
 };
+// loader
 const loader = (loading) => {
-    console.log("loading");
+    // console.log("loading");
     if (loading) {
         DOM.loader.classList.remove("hide");
     }
@@ -52,10 +53,40 @@ const loader = (loading) => {
         DOM.loader.classList.add("hide");
     }
 };
-// // if user is registered hide login div
-// if (DOM.usernameDiv.classList.contains("hide")) {
-//   DOM.indexSection2.classList.add("not__logedin");
-// }
+// logout
+let resetUI = () => {
+    // დამალეთ მომხმარებლის სახელი
+    DOM.usernameDiv.classList.add("hide");
+    // გამოაჩინეთ ლოგინის ღილაკი
+    DOM.loginBtn.classList.remove("hide");
+    // დაამატეთ not__logedin კლასი, რომელიც სავარაუდოდ ბლოკავს კონტენტს
+    DOM.indexSection2.classList.add("not__logedin");
+    // დამალეთ მომხმარებლის სახელი
+    DOM.usernameSpan.innerHTML = "";
+    // დამალეთ მომხმარებლის მონაცემებს
+    DOM.username.value = "";
+    DOM.email.value = "";
+    DOM.password.value = "";
+    // console.log("resetUI works");
+};
+// get request for all quotes
+let getAllQuotes = async () => {
+    try {
+        let response = await fetch("http://localhost:8080/quotes", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        if (response.ok) {
+            let result = await response.json();
+            result.forEach((quote) => addNewQuote(quote.author, quote.quote, quote.id)); //console.log(result);
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+};
 // change input backgrounds
 let changeInputBack = function (name, valideColor, invalideColor) {
     switch (name) {
@@ -146,6 +177,14 @@ DOM.toggleSpan.addEventListener("click", () => {
     DOM.username.value = "";
     DOM.password.value = "";
 });
+DOM.swordSvgs.addEventListener("click", () => {
+    if (DOM.password.type === "text") {
+        DOM.password.type = "password";
+    }
+    else {
+        DOM.password.type = "text";
+    }
+});
 // close registration div
 DOM.closeRegistrationBtn.addEventListener("click", () => {
     removeRegistrationWindow();
@@ -169,12 +208,12 @@ DOM.submit.addEventListener("click", async () => {
             });
             if (response.ok) {
                 let result = await response.json();
-                console.log(result);
+                // console.log(result);
                 if (result.message === "ვალიდაცია ყველა მონაცემმა გაიარა") {
                     removeRegistrationWindow();
                     DOM.usernameDiv.classList.remove("hide");
                     DOM.usernameSpan.innerHTML = result.username;
-                    console.log(DOM.username.innerHTML);
+                    // console.log(DOM.username.innerHTML);
                     DOM.loginBtn.classList.add("hide");
                     DOM.indexSection2.classList.remove("not__logedin");
                 }
@@ -213,7 +252,7 @@ DOM.submit.addEventListener("click", async () => {
             });
             if (response.ok) {
                 let result = await response.json();
-                console.log(result.message);
+                // console.log(result.message);
                 if (result.message === "ვალიდაცია ყველა მონაცემმა გაიარა") {
                     DOM.registrationDiv.classList.remove("appear");
                     DOM.overlay.classList.add("hide");
@@ -276,16 +315,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     finally {
         loader(false);
     }
+    getAllQuotes();
 });
 // logout
-let resetUI = () => {
-    // დამალეთ მომხმარებლის სახელი
-    DOM.usernameDiv.classList.add("hide");
-    // გამოაჩინეთ ლოგინის ღილაკი
-    DOM.loginBtn.classList.remove("hide");
-    // დაამატეთ not__logedin კლასი, რომელიც სავარაუდოდ ბლოკავს კონტენტს
-    DOM.indexSection2.classList.add("not__logedin");
-};
 DOM.logout.addEventListener("click", async () => {
     try {
         loader(true);
@@ -296,8 +328,6 @@ DOM.logout.addEventListener("click", async () => {
         if (response.ok) {
             let result = await response.json();
             console.log(result.message);
-            // 🔑 წარმატებული ლოგაუთის შემდეგ, დააბრუნეთ ინტერფეისი საწყის მდგომარეობაში
-            resetUI();
         }
         else {
             console.error("Logout failed on server.");
@@ -308,6 +338,79 @@ DOM.logout.addEventListener("click", async () => {
     }
     finally {
         loader(false);
+    }
+    await resetUI();
+});
+// send quote to save
+DOM.addQuoteBtn.addEventListener("click", async () => {
+    loader(true);
+    let quoteObj = {
+        author: DOM.author.value,
+        quote: DOM.quote.value,
+    };
+    try {
+        let response = await fetch("http://localhost:8080/quote", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(quoteObj),
+        });
+        if (response.ok) {
+            let result = await response.json();
+            console.log(result);
+            if (result.completed) {
+                addNewQuote(result.author, result.quote, result.id);
+                console.log(result.id);
+                DOM.quote.value = "";
+                DOM.author.value = "";
+                DOM.addQuoteDiv.classList.remove("appear");
+            }
+            else {
+                console.log("შეცდომა");
+            }
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+    finally {
+        loader(false);
+    }
+});
+// delete quote
+DOM.articleDiv.addEventListener("click", async (e) => {
+    let removeBtnElement = e.target.closest(".remove");
+    console.log(e.target);
+    if (removeBtnElement) {
+        loader(true);
+        let removeBtn = removeBtnElement;
+        let quoteArticle = removeBtn.closest(".quote__article");
+        // console.log(removeBtn.dataset.id);
+        try {
+            let response = await fetch(`http://localhost:8080/quote/${removeBtn.dataset.id}`, {
+                method: "DELETE",
+            });
+            if (response.ok) {
+                let result = await response.json();
+                if (result.completed) {
+                    console.log(result);
+                    quoteArticle.remove();
+                }
+                else {
+                    console.log("შეცდომა");
+                }
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+        finally {
+            loader(false);
+        }
+    }
+    else {
+        console.error("Element does not exist");
     }
 });
 //# sourceMappingURL=index.js.map

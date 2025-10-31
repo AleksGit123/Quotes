@@ -79,7 +79,7 @@
 
 
         <div class="header__search__div">
-            <input type="text" id="search" class="search handwriten__font" placeholder="Search...">
+            <input type="text" id="search" class="search handwriten__font" placeholder="Search..." autocomplete="off">
 
             <img src="./media/quotes.png" alt="quotes mark icon" class="quotes__icon__left">
 
@@ -103,32 +103,37 @@
 
 
         <!-- registration section -->
-        <section class="registration">
+        <section class="registration ">
             <h2 class="registration__header font">
                 Registration Form
             </h2>
 
             <!-- form  -->
-            <form action="#" class="registration__form">
+            <form action="#" class="registration__form ">
 
                 <!-- div for inputs -->
                 <div class="input__div">
 
-                    <input type="text" class="username font " id="username" placeholder="username">
+                    <input type="text" class="username font " id="username" placeholder="username" autocomplete="off">
 
 
-                    <input type="email" class="email font" id="email" placeholder="email">
+                    <input type="email" class="email font" id="email" placeholder="email" autocomplete="off">
 
-                    <input type="text" autocomplete="on" class="password font" id="password" placeholder="password">
+                    <input type="password" name="password" class=" password font" id="password" placeholder="password"
+                        autocomplete="off">
+
+
+                    <div class="sword__svgs">
+                        <img src="./media/sword.png" alt="sword svg" class="sword">
+
+                        <img src="./media/sword.png" alt="sword svg" class="sword reversed">
+                    </div>
+
+
                 </div>
 
                 <button class="submit font">L O G I N</button>
 
-
-
-                <img src="./media/rubber-stamp.png" alt="stamp icon" class="stamp">
-
-                <img src="./media/approval.png" alt="approval" class="form__approve approval">
             </form>
 
             <!-- sign up and log in form toggle -->

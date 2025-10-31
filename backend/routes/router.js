@@ -1,6 +1,7 @@
 import express from "express"
 import checkRegexp from "../../public/regexp.js";
 import User from "../user.js"
+import Quote from "../quoteSchema.js"
 import bcrypt from "bcryptjs"; 
 
 let quoteid = 1;
@@ -61,6 +62,7 @@ router.post("/signup",checkUser, async (req, res) => {
         
 })
 
+// login 
 router.post("/login", async (req,res) =>{
     let {email,password} = req.body;
     try {
@@ -131,5 +133,56 @@ router.post("/logout", (req, res) => {
         res.json({ message: "თქვენ უკვე გამოსული ხართ სისტემიდან" });
     }
 });
+
+// get method for quotes, in order not dont lost after refreshing website
+router.get("/quotes",async(req,res)=>{
+    let quotes = await Quote.find({});
+    res.json(quotes)
+})
+
+// save quote
+router.post("/quote",async (req,res)=>{
+    let {author,quote} = req.body;
+
+    if(author !== "" && quote !== ""){
+
+        let newQuote = new Quote({
+            author,
+            quote
+        })
+
+
+        newQuote.save();
+
+        res.json({
+            message:"ციტატა წარმატებით დაემატა",
+            completed:true,
+            author:author,
+            quote:quote,
+            id:newQuote._id   
+        })
+        
+    }
+    else{
+        res.json({
+            message:"ცარიელი ციტატა!!",
+            completed:false,
+        })
+    }
+    
+})
+
+// delete quote
+router.delete("/quote/:id",async (req,res) =>{
+    let {id} = req.params;
+    console.log("This is from backend: ",id)
+    let quoteId = await Quote.findByIdAndDelete(id);
+     console.log(quoteId)
+    res.json({
+        message:"ციტატა წარმატებით წაიშალა",
+        completed:true
+    })
+})
+
 
 export default router;

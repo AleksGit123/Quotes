@@ -19,7 +19,8 @@ const DOM = {
   overlay: getElement<HTMLDivElement>(".overlay"),
   formDiv: getElement<HTMLDivElement>(".registration__form"),
   usernameDiv: getElement<HTMLDivElement>(".user__div"),
-  loader:getElement<HTMLDivElement>(".loader__section"),
+  loader: getElement<HTMLDivElement>(".loader__section"),
+  swordSvgs: getElement<HTMLElement>(".sword__svgs"),
 
   // ღილაკები
   newQuoteBtn: getElement<HTMLButtonElement>(".new__quote"),
@@ -29,7 +30,7 @@ const DOM = {
   submit: getElement<HTMLButtonElement>(".submit"),
   signupBtn: getElement<HTMLButtonElement>(".signup"),
   logout: getElement<HTMLButtonElement>(".logout"),
-
+  removeBtn: getElement<HTMLButtonElement>(".remove"),
   // მედია
   closeRegistrationBtn: getElement<HTMLButtonElement>(".cancel__img"),
 
